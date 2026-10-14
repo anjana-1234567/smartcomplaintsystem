@@ -15,10 +15,29 @@ app.use((req, res, next) => {
 
 // ================= DATABASE CONNECTION =================
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/complaints";
-mongoose
-  .connect(MONGODB_URI)
-  .then(() => console.log(`MongoDB connected successfully to ${MONGODB_URI.startsWith("mongodb+srv") ? "MongoDB Atlas" : MONGODB_URI}`))
-  .catch((err) => console.error("MongoDB Connection Error:", err));
+
+let cachedDb = null;
+async function connectDB() {
+  if (cachedDb && mongoose.connection.readyState === 1) {
+    return cachedDb;
+  }
+  cachedDb = await mongoose.connect(MONGODB_URI, {
+    serverSelectionTimeoutMS: 5000,
+  });
+  console.log(`MongoDB connected successfully to ${MONGODB_URI.startsWith("mongodb+srv") ? "MongoDB Atlas" : MONGODB_URI}`);
+  return cachedDb;
+}
+
+// Ensure DB is connected for every request
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error("MongoDB Connection Error:", err.message);
+    next();
+  }
+});
 
 // ================= USER SCHEMA & MODEL =================
 const userSchema = new mongoose.Schema(
