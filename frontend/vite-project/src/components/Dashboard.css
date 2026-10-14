@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: #f5f7fb;
+}
+
+.layout {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #0f172a;
+  color: white;
+  padding: 30px 20px;
+}
+
+.logo h3 {
+  margin: 0;
+  color: white;
+}
+
+.logo p {
+  color: #a5b4fc;
+  font-size: 12px;
+}
+
+.menu {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.menu:hover {
+  background: #6366f1;
+}
+
+.content {
+  flex: 1;
+  padding: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card h1 {
+  color: #6366f1;
+  margin: 0;
+}
+
+.profile-card {
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #8b5cf6
+  );
+  color: white;
+  border-radius: 25px;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.complaint-card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.status {
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.pending {
+  background: #fef3c7;
+}
+
+.progress {
+  background: #dbeafe;
+}
+
+.resolved {
+  background: #dcfce7;
+}

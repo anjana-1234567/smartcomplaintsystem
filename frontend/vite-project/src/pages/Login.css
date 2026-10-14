@@ -1,0 +1,130 @@
+.login-container {
+  min-height: 100vh;
+  background-image: url("../assets/classroom.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  width: 430px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+.login-card h1 {
+  margin: 0;
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  color: #111;
+}
+
+.login-card h2 {
+  margin-top: 5px;
+  font-size: 22px;
+  letter-spacing: 4px;
+  color: #444;
+}
+
+.tagline {
+  margin-top: 18px;
+  color: #666;
+  font-size: 14px;
+}
+
+.login-text {
+  margin-top: 30px;
+  color: #333;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.role-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.role-buttons button {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.role-buttons button:hover {
+  transform: translateY(-2px);
+}
+
+.role-buttons .active {
+  background: #111;
+  color: white;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 18px;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.login-card input:focus {
+  border: 1px solid #555;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #333;
+}
+
+.or {
+  margin: 22px 0;
+  color: #666;
+}
+
+.register-btn {
+  width: 100%;
+  padding: 15px;
+  background: white;
+  color: #111;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: #f5f5f5;
+}
