@@ -1,6 +1,12 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import dns from "dns";
+
+// Ensure resilient SRV resolution across environments
+try {
+  dns.setServers(["8.8.8.8", "8.8.4.4", "1.1.1.1"]);
+} catch (e) {}
 
 const app = express();
 
@@ -14,7 +20,9 @@ app.use((req, res, next) => {
 });
 
 // ================= DATABASE CONNECTION =================
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/complaints";
+const MONGODB_URI =
+  process.env.MONGODB_URI ||
+  "mongodb+srv://jairamuluveravelli_db_user:anjana123456@smartcomplaintsystem.iox9gog.mongodb.net/complaints?retryWrites=true&w=majority&appName=smartcomplaintsystem";
 
 let cachedDb = null;
 async function connectDB() {
