@@ -169,6 +169,7 @@ export default function Register() {
               onChange={handleChange}
               onFocus={() => setFocusedField("username")}
               onBlur={() => setFocusedField("")}
+              autoComplete="name"
               required
               style={{
                 ...styles.input,
@@ -189,11 +190,13 @@ export default function Register() {
             <input
               type="email"
               name="email"
+              id="email"
               placeholder="Email Address"
               value={form.email}
               onChange={handleChange}
               onFocus={() => setFocusedField("email")}
               onBlur={() => setFocusedField("")}
+              autoComplete="username email"
               required
               style={{
                 ...styles.input,
@@ -215,11 +218,13 @@ export default function Register() {
             <input
               type="text"
               name="userId"
+              id="userId"
               placeholder={role === "student" ? "Roll Number (e.g. 24EG105T04)" : "Teacher ID (e.g. TCH102)"}
               value={form.userId}
               onChange={handleChange}
               onFocus={() => setFocusedField("userId")}
               onBlur={() => setFocusedField("")}
+              autoComplete="off"
               required
               style={{
                 ...styles.input,
@@ -240,11 +245,13 @@ export default function Register() {
             <input
               type="text"
               name="section"
+              id="section"
               placeholder={role === "student" ? "Class / Section (e.g. CSE-T)" : "Department (e.g. Computer Science)"}
               value={form.section}
               onChange={handleChange}
               onFocus={() => setFocusedField("section")}
               onBlur={() => setFocusedField("")}
+              autoComplete="off"
               style={{
                 ...styles.input,
                 borderColor: focusedField === "section" ? "#C59B51" : "#2E3444",
@@ -264,11 +271,13 @@ export default function Register() {
             <input
               type="password"
               name="password"
+              id="password"
               placeholder="Create Password"
               value={form.password}
               onChange={handleChange}
               onFocus={() => setFocusedField("password")}
               onBlur={() => setFocusedField("")}
+              autoComplete="new-password"
               required
               style={{
                 ...styles.input,

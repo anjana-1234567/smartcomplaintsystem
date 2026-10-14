@@ -140,11 +140,13 @@ export default function Login() {
             <input
               type="text"
               name="username"
+              id="login-username"
               placeholder="Username"
               value={form.username}
               onChange={handleChange}
               onFocus={() => setFocusedField("username")}
               onBlur={() => setFocusedField("")}
+              autoComplete="username email"
               required
               style={{
                 ...styles.input,
@@ -178,11 +180,13 @@ export default function Login() {
             <input
               type="password"
               name="password"
+              id="login-password"
               placeholder="Password"
               value={form.password}
               onChange={handleChange}
               onFocus={() => setFocusedField("password")}
               onBlur={() => setFocusedField("")}
+              autoComplete="current-password"
               required
               style={{
                 ...styles.input,
