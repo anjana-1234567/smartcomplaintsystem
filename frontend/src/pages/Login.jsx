@@ -141,12 +141,12 @@ export default function Login() {
               type="text"
               name="username"
               id="login-username"
-              placeholder="Username"
+              placeholder="Email Address or Username"
               value={form.username}
               onChange={handleChange}
               onFocus={() => setFocusedField("username")}
               onBlur={() => setFocusedField("")}
-              autoComplete="username email"
+              autoComplete="username"
               required
               style={{
                 ...styles.input,

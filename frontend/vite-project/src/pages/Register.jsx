@@ -179,33 +179,6 @@ export default function Register() {
             />
           </div>
 
-          {/* Email */}
-          <div style={styles.inputGroup}>
-            <span style={styles.inputIcon}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7A8296" strokeWidth="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                <polyline points="22,6 12,13 2,6" />
-              </svg>
-            </span>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email Address"
-              value={form.email}
-              onChange={handleChange}
-              onFocus={() => setFocusedField("email")}
-              onBlur={() => setFocusedField("")}
-              autoComplete="username email"
-              required
-              style={{
-                ...styles.input,
-                borderColor: focusedField === "email" ? "#C59B51" : "#2E3444",
-                boxShadow: focusedField === "email" ? "0 0 0 1px #C59B51" : "none",
-              }}
-            />
-          </div>
-
           {/* Roll Number or Teacher ID */}
           <div style={styles.inputGroup}>
             <span style={styles.inputIcon}>
@@ -256,6 +229,33 @@ export default function Register() {
                 ...styles.input,
                 borderColor: focusedField === "section" ? "#C59B51" : "#2E3444",
                 boxShadow: focusedField === "section" ? "0 0 0 1px #C59B51" : "none",
+              }}
+            />
+          </div>
+
+          {/* Email Address - Placed immediately before password for browser password managers */}
+          <div style={styles.inputGroup}>
+            <span style={styles.inputIcon}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7A8296" strokeWidth="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </span>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email Address"
+              value={form.email}
+              onChange={handleChange}
+              onFocus={() => setFocusedField("email")}
+              onBlur={() => setFocusedField("")}
+              autoComplete="username"
+              required
+              style={{
+                ...styles.input,
+                borderColor: focusedField === "email" ? "#C59B51" : "#2E3444",
+                boxShadow: focusedField === "email" ? "0 0 0 1px #C59B51" : "none",
               }}
             />
           </div>
