@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import DashboardLayout from "../layouts/DashboardLayout";
+import API_BASE_URL from "../apiConfig";
 
 export default function StudentProfile() {
   const localUser = JSON.parse(localStorage.getItem("user")) || {};
@@ -22,7 +23,7 @@ export default function StudentProfile() {
   const fetchProfile = async () => {
     if (!localUser._id) return;
     try {
-      const res = await axios.get(`http://localhost:5000/api/user/${localUser._id}`);
+      const res = await axios.get(`${API_BASE_URL}/api/user/${localUser._id}`);
       setProfile(res.data);
       setEditForm({
         email: res.data.email || "",
@@ -50,7 +51,7 @@ export default function StudentProfile() {
 
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/user/${profile._id}`,
+        `${API_BASE_URL}/api/user/${profile._id}`,
         editForm
       );
       setProfile(res.data);

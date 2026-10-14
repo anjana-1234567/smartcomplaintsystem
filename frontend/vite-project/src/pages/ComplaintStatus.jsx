@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import DashboardLayout from "../layouts/DashboardLayout";
+import API_BASE_URL from "../apiConfig";
 
 export default function ComplaintStatus() {
   const [complaints, setComplaints] = useState([]);
@@ -9,7 +10,7 @@ export default function ComplaintStatus() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api")
+    axios.get(`${API_BASE_URL}/api`)
       .then((res) => setComplaints(res.data));
   }, []);
 

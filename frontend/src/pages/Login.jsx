@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import API_BASE_URL from "../apiConfig";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ export default function Login() {
 
     try {
       // Backend supports username, email, or identifier
-      const res = await axios.post("http://localhost:5000/api/login", {
+      const res = await axios.post(`${API_BASE_URL}/api/login`, {
         username: form.username.trim(),
         email: form.username.trim(),
         identifier: form.username.trim(),

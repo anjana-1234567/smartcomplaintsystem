@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import DashboardLayout from "../layouts/DashboardLayout";
+import API_BASE_URL from "../apiConfig";
 
 export default function AddComplaint() {
   const [complaint, setComplaint] = useState("");
@@ -16,7 +17,7 @@ export default function AddComplaint() {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:5000/api/add", {
+      await axios.post(`${API_BASE_URL}/api/add`, {
         name: user?.username || "Student",
         studentId: user?.userId || "",
         userId: user?.userId || "",

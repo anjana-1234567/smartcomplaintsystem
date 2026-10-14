@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import DashboardLayout from "../layouts/DashboardLayout";
+import API_BASE_URL from "../apiConfig";
 
 export default function MyComplaints() {
   const [complaints, setComplaints] = useState([]);
@@ -9,7 +10,7 @@ export default function MyComplaints() {
 
   const fetchData = () => {
     axios
-      .get("http://localhost:5000/api")
+      .get(`${API_BASE_URL}/api`)
       .then((res) => setComplaints(res.data))
       .catch(() => setComplaints([]));
   };

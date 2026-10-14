@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import DashboardLayout from "../layouts/DashboardLayout";
+import API_BASE_URL from "../apiConfig";
 
 export default function AllComplaints() {
   const [complaints, setComplaints] = useState([]);
@@ -9,7 +10,7 @@ export default function AllComplaints() {
 
   const fetchData = () => {
     axios
-      .get("http://localhost:5000/api")
+      .get(`${API_BASE_URL}/api`)
       .then((res) => {
         setComplaints(res.data);
 
@@ -31,7 +32,7 @@ export default function AllComplaints() {
   const saveResponse = async (id) => {
     const user = JSON.parse(localStorage.getItem("user"));
     await axios.put(
-      `http://localhost:5000/api/response/${id}`,
+      `${API_BASE_URL}/api/response/${id}`,
       {
         response: responses[id],
         respondedBy: user?.username || "Teacher",
@@ -44,7 +45,7 @@ export default function AllComplaints() {
   // UPDATE STATUS ONLY
   const updateStatus = async (id, status) => {
     await axios.put(
-      `http://localhost:5000/api/status/${id}`,
+      `${API_BASE_URL}/api/status/${id}`,
       {
         status,
       }

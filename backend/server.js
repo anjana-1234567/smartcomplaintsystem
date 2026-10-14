@@ -14,9 +14,10 @@ app.use((req, res, next) => {
 });
 
 // ================= DATABASE CONNECTION =================
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/complaints";
 mongoose
-  .connect("mongodb://127.0.0.1:27017/complaints")
-  .then(() => console.log("MongoDB connected successfully to mongodb://127.0.0.1:27017/complaints"))
+  .connect(MONGODB_URI)
+  .then(() => console.log(`MongoDB connected successfully to ${MONGODB_URI.startsWith("mongodb+srv") ? "MongoDB Atlas" : MONGODB_URI}`))
   .catch((err) => console.error("MongoDB Connection Error:", err));
 
 // ================= USER SCHEMA & MODEL =================
@@ -425,7 +426,7 @@ app.delete("/api/complaint/:id", async (req, res) => {
 });
 
 // ================= SERVER START =================
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
